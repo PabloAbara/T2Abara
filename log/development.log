@@ -1,0 +1,494 @@
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6374199858669051780)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateEntries (20180402194605)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (20.5ms)[0m  [1m[35mCREATE TABLE "entries" ("id" bigserial primary key, "title" character varying, "subtitle" text, "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180402194605"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20180402194615)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "author" character varying, "comment" text, "entry_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_24508b7aa5"
+FOREIGN KEY ("entry_id")
+  REFERENCES "entries" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(6374199858669051780)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6374199858669051780)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateComments (20180402194615)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "author" character varying, "comment" text, "entry_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_24508b7aa5"
+FOREIGN KEY ("entry_id")
+  REFERENCES "entries" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6374199858669051780)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (202.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "T2Abara_development"[0m
+  [1m[35m (200.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "T2Abara_test"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "T2Abara_development"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "T2Abara_test"[0m
+  [1m[35m (564.0ms)[0m  [1m[35mCREATE DATABASE "T2Abara_development" ENCODING = 'unicode'[0m
+  [1m[35m (456.8ms)[0m  [1m[35mCREATE DATABASE "T2Abara_test" ENCODING = 'unicode'[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6374199858669051780)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateEntries (20180402194605)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE TABLE "entries" ("id" bigserial primary key, "title" character varying, "subtitle" text, "body" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180402194605"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20180402194615)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "author" character varying, "comment" text, "entry_id" bigint, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, CONSTRAINT "fk_rails_24508b7aa5"
+FOREIGN KEY ("entry_id")
+  REFERENCES "entries" ("id")
+)[0m
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE  INDEX  "index_comments_on_entry_id" ON "comments"  ("entry_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180402194615"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-04-02 19:49:29.767802"], ["updated_at", "2018-04-02 19:49:29.767802"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(6374199858669051780)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/entries" for 127.0.0.1 at 2018-04-02 16:54:42 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EntriesController#index as */*
+  [1m[36mEntry Load (0.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries"[0m
+Completed 200 OK in 10ms (Views: 1.8ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/entries" for 127.0.0.1 at 2018-04-02 16:55:22 -0300
+Processing by EntriesController#create as HTML
+  Parameters: {"title"=>"Titulo 1", "subtitle"=>"Subtítulo 1", "body"=>"Este es el cuerpo", "entry"=>{"title"=>"Titulo 1", "subtitle"=>"Subtítulo 1", "body"=>"Este es el cuerpo"}}
+Unpermitted parameters: :subtitle, :body, :entry
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 16ms (Views: 0.2ms | ActiveRecord: 8.8ms)
+
+
+Started POST "/entries" for 127.0.0.1 at 2018-04-02 16:55:43 -0300
+Processing by EntriesController#create as HTML
+  Parameters: {"title"=>"Titulo 1", "subtitle"=>"Subtítulo 1", "body"=>"Este es el cuerpo", "entry"=>{"title"=>"Titulo 1", "subtitle"=>"Subtítulo 1", "body"=>"Este es el cuerpo"}}
+Unpermitted parameters: :subtitle, :body, :entry
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/entries" for 127.0.0.1 at 2018-04-02 16:55:51 -0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EntriesController#create as HTML
+  Parameters: {"title"=>"Titulo 1", "subtitle"=>"Subtítulo 1", "body"=>"Este es el cuerpo", "entry"=>{"title"=>"Titulo 1", "subtitle"=>"Subtítulo 1", "body"=>"Este es el cuerpo"}}
+Unpermitted parameter: :entry
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "entries" ("title", "subtitle", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Titulo 1"], ["subtitle", "Subtítulo 1"], ["body", "Este es el cuerpo"], ["created_at", "2018-04-02 19:55:51.810643"], ["updated_at", "2018-04-02 19:55:51.810643"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 12ms (Views: 0.6ms | ActiveRecord: 5.6ms)
+
+
+Started POST "/entries" for 127.0.0.1 at 2018-04-02 16:56:23 -0300
+Processing by EntriesController#create as HTML
+  Parameters: {"title"=>"Titulo 2", "subtitle"=>"Subtítulo 2", "body"=>"Este es el cuerpo2", "entry"=>{"title"=>"Titulo 2", "subtitle"=>"Subtítulo 2", "body"=>"Este es el cuerpo2"}}
+Unpermitted parameter: :entry
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "entries" ("title", "subtitle", "body", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["title", "Titulo 2"], ["subtitle", "Subtítulo 2"], ["body", "Este es el cuerpo2"], ["created_at", "2018-04-02 19:56:23.809661"], ["updated_at", "2018-04-02 19:56:23.809661"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 16ms (Views: 0.4ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/entries" for 127.0.0.1 at 2018-04-02 16:56:27 -0300
+Processing by EntriesController#index as */*
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT "entries".* FROM "entries"[0m
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/entries/2" for 127.0.0.1 at 2018-04-02 16:56:31 -0300
+Processing by EntriesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/entries" for 127.0.0.1 at 2018-04-02 16:58:13 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EntriesController#index as */*
+  [1m[36mEntry Load (0.8ms)[0m  [1m[34mSELECT "entries".* FROM "entries"[0m
+Completed 200 OK in 18ms (Views: 8.1ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/entries/2/comments" for 127.0.0.1 at 2018-04-02 16:58:48 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"author"=>"Pablo A", "comment"=>"Este sería un comentario", "entry_id"=>"2"}
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 5.2ms)
+
+
+  
+NoMethodError (undefined method `comments' for #<Entry:0x007f8da2cec4f8>
+Did you mean?  committed!):
+  
+app/controllers/comments_controller.rb:17:in `create'
+Started GET "/entries/2" for 127.0.0.1 at 2018-04-02 16:59:19 -0300
+Processing by EntriesController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/entries/2/comments" for 127.0.0.1 at 2018-04-02 16:59:27 -0300
+Processing by CommentsController#index as */*
+  Parameters: {"entry_id"=>"2"}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.3ms)
+
+
+  
+NoMethodError (undefined method `comments' for #<Entry:0x007f8da2d8e820>
+Did you mean?  committed!):
+  
+app/controllers/comments_controller.rb:7:in `index'
+Started GET "/entries/2/comments" for 127.0.0.1 at 2018-04-02 17:00:51 -0300
+Processing by CommentsController#index as */*
+  Parameters: {"entry_id"=>"2"}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.2ms)
+
+
+  
+NoMethodError (undefined method `comments' for #<Entry:0x007f8da2cbf2f0>
+Did you mean?  committed!):
+  
+app/controllers/comments_controller.rb:7:in `index'
+Started GET "/entries/2/comments" for 127.0.0.1 at 2018-04-02 17:01:21 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CommentsController#index as */*
+  Parameters: {"entry_id"=>"2"}
+  [1m[36mEntry Load (0.5ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 3.9ms)
+
+
+  
+NoMethodError (undefined method `comments' for #<Entry:0x007fbd6e66d888>
+Did you mean?  committed!):
+  
+app/controllers/comments_controller.rb:7:in `index'
+Started GET "/entries" for 127.0.0.1 at 2018-04-02 17:06:50 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EntriesController#index as */*
+  [1m[36mEntry Load (0.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries"[0m
+Completed 200 OK in 18ms (Views: 8.5ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/entries/2/comments" for 127.0.0.1 at 2018-04-02 17:06:55 -0300
+Processing by CommentsController#index as */*
+  Parameters: {"entry_id"=>"2"}
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (7.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."entry_id" = $1[0m  [["entry_id", 2]]
+Completed 200 OK in 43ms (Views: 5.3ms | ActiveRecord: 16.3ms)
+
+
+Started POST "/entries/2/comments" for 127.0.0.1 at 2018-04-02 17:09:00 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"author"=>"Pablo A", "comment"=>"Este sería un comentario", "entry_id"=>"2"}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Unpermitted parameter: :entry_id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (24.6ms)[0m  [1m[32mINSERT INTO "comments" ("author", "comment", "entry_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Pablo A"], ["comment", "Este sería un comentario"], ["entry_id", 2], ["created_at", "2018-04-02 20:09:00.323467"], ["updated_at", "2018-04-02 20:09:00.323467"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 43ms (Views: 0.7ms | ActiveRecord: 28.2ms)
+
+
+Started GET "/entries/2/comments" for 127.0.0.1 at 2018-04-02 17:09:05 -0300
+Processing by CommentsController#index as */*
+  Parameters: {"entry_id"=>"2"}
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."entry_id" = $1[0m  [["entry_id", 2]]
+Completed 200 OK in 4ms (Views: 1.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/entries/2/comments" for 127.0.0.1 at 2018-04-02 17:09:14 -0300
+Processing by CommentsController#create as HTML
+  Parameters: {"author"=>"Pablo A", "comment"=>"Este sería un comentario22222", "entry_id"=>"2"}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Unpermitted parameter: :entry_id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("author", "comment", "entry_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["author", "Pablo A"], ["comment", "Este sería un comentario22222"], ["entry_id", 2], ["created_at", "2018-04-02 20:09:14.147094"], ["updated_at", "2018-04-02 20:09:14.147094"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 5ms (Views: 0.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/entries/2/comments" for 127.0.0.1 at 2018-04-02 17:09:17 -0300
+Processing by CommentsController#index as */*
+  Parameters: {"entry_id"=>"2"}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."entry_id" = $1[0m  [["entry_id", 2]]
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 1.1ms)
+
+
+Started PUT "/entries/2/comments/2" for 127.0.0.1 at 2018-04-02 17:09:55 -0300
+Processing by CommentsController#update as HTML
+  Parameters: {"comment"=>"Nueva actualizacion", "entry_id"=>"2", "id"=>"2"}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."entry_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["entry_id", 2], ["id", 2], ["LIMIT", 1]]
+Unpermitted parameters: :entry_id, :id
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[33mUPDATE "comments" SET "comment" = $1, "updated_at" = $2 WHERE "comments"."id" = $3[0m  [["comment", "Nueva actualizacion"], ["updated_at", "2018-04-02 20:09:55.278813"], ["id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 204 No Content in 8ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/entries/2/comments/2" for 127.0.0.1 at 2018-04-02 17:10:16 -0300
+Processing by CommentsController#show as */*
+  Parameters: {"entry_id"=>"2", "id"=>"2"}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."entry_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["entry_id", 2], ["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/entries" for 127.0.0.1 at 2018-04-02 17:19:57 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EntriesController#index as HTML
+  [1m[36mEntry Load (0.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries"[0m
+Completed 200 OK in 18ms (Views: 8.1ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2018-04-02 17:19:57 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/entries/news" for 127.0.0.1 at 2018-04-02 17:20:01 -0300
+Processing by EntriesController#show as HTML
+  Parameters: {"id"=>"news"}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 5ms (Views: 0.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/entries/1" for 127.0.0.1 at 2018-04-02 17:20:06 -0300
+Processing by EntriesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/entries/2" for 127.0.0.1 at 2018-04-02 17:20:09 -0300
+Processing by EntriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-02 17:27:36 -0300
+Processing by EntriesController#index as HTML
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries"[0m
+Completed 200 OK in 16ms (Views: 8.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-02 17:27:44 -0300
+Processing by EntriesController#index as HTML
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT "entries".* FROM "entries"[0m
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-02 17:28:15 -0300
+Processing by EntriesController#index as HTML
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT "entries".* FROM "entries"[0m
+Completed 200 OK in 2ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-02 17:28:49 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EntriesController#index as HTML
+  [1m[36mEntry Load (0.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries"[0m
+Completed 200 OK in 18ms (Views: 8.3ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-04-02 20:20:35 -0300
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by EntriesController#index as HTML
+  [1m[36mEntry Load (32.8ms)[0m  [1m[34mSELECT "entries".* FROM "entries"[0m
+Completed 200 OK in 59ms (Views: 10.4ms | ActiveRecord: 42.3ms)
+
+
+Started GET "/news" for 127.0.0.1 at 2018-04-02 20:20:37 -0300
+Processing by EntriesController#index as HTML
+  [1m[36mEntry Load (0.6ms)[0m  [1m[34mSELECT "entries".* FROM "entries"[0m
+Completed 200 OK in 15ms (Views: 6.9ms | ActiveRecord: 8.0ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2018-04-02 20:20:37 -0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.4) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.4) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.3) lib/puma/configuration.rb:225:in `call'
+puma (3.11.3) lib/puma/server.rb:624:in `handle_request'
+puma (3.11.3) lib/puma/server.rb:438:in `process_client'
+puma (3.11.3) lib/puma/server.rb:302:in `block in run'
+puma (3.11.3) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/news/2" for 127.0.0.1 at 2018-04-02 20:21:01 -0300
+Processing by EntriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEntry Load (1.8ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/news/2/comments" for 127.0.0.1 at 2018-04-02 20:21:04 -0300
+Processing by CommentsController#index as HTML
+  Parameters: {"entry_id"=>"2"}
+  [1m[36mEntry Load (0.5ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (23.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."entry_id" = $1[0m  [["entry_id", 2]]
+Completed 200 OK in 68ms (Views: 21.9ms | ActiveRecord: 27.7ms)
+
+
+Started GET "/news/2/comments" for 127.0.0.1 at 2018-04-02 20:24:47 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CommentsController#index as HTML
+  Parameters: {"entry_id"=>"2"}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."entry_id" = $1[0m  [["entry_id", 2]]
+Completed 200 OK in 50ms (Views: 14.2ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/news/2" for 127.0.0.1 at 2018-04-02 20:24:51 -0300
+Processing by EntriesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mEntry Load (0.7ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 15ms (Views: 0.5ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/news/2/comments" for 127.0.0.1 at 2018-04-02 20:24:54 -0300
+Processing by CommentsController#index as HTML
+  Parameters: {"entry_id"=>"2"}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."entry_id" = $1[0m  [["entry_id", 2]]
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/news/2/comments/1" for 127.0.0.1 at 2018-04-02 20:24:57 -0300
+Processing by CommentsController#show as HTML
+  Parameters: {"entry_id"=>"2", "id"=>"1"}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (2.2ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."entry_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["entry_id", 2], ["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/news/2/comments/2" for 127.0.0.1 at 2018-04-02 20:24:59 -0300
+Processing by CommentsController#show as HTML
+  Parameters: {"entry_id"=>"2", "id"=>"2"}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."entry_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["entry_id", 2], ["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/news/2/comments/287" for 127.0.0.1 at 2018-04-02 20:41:41 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CommentsController#show as HTML
+  Parameters: {"entry_id"=>"2", "id"=>"287"}
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."entry_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["entry_id", 2], ["id", 287], ["LIMIT", 1]]
+Completed 404 Not Found in 38ms (Views: 0.2ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/news/2/comments/287" for 127.0.0.1 at 2018-04-02 20:41:55 -0300
+Processing by CommentsController#show as HTML
+  Parameters: {"entry_id"=>"2", "id"=>"287"}
+  [1m[36mEntry Load (0.6ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."entry_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["entry_id", 2], ["id", 287], ["LIMIT", 1]]
+Completed 404 Not Found in 14ms (Views: 0.3ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/news/2/comments/287" for 127.0.0.1 at 2018-04-02 20:42:12 -0300
+Processing by CommentsController#show as HTML
+  Parameters: {"entry_id"=>"2", "id"=>"287"}
+  [1m[36mEntry Load (0.2ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."entry_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["entry_id", 2], ["id", 287], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/news/2/comments/287" for 127.0.0.1 at 2018-04-02 20:42:17 -0300
+Processing by CommentsController#show as HTML
+  Parameters: {"entry_id"=>"2", "id"=>"287"}
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."entry_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["entry_id", 2], ["id", 287], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (Views: 0.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/news/2/comments/287" for 127.0.0.1 at 2018-04-02 20:42:18 -0300
+Processing by CommentsController#show as HTML
+  Parameters: {"entry_id"=>"2", "id"=>"287"}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."entry_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["entry_id", 2], ["id", 287], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/news/2/comments/287" for 127.0.0.1 at 2018-04-02 20:42:18 -0300
+Processing by CommentsController#show as HTML
+  Parameters: {"entry_id"=>"2", "id"=>"287"}
+  [1m[36mEntry Load (0.3ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."entry_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["entry_id", 2], ["id", 287], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/news/2/comments/287" for 127.0.0.1 at 2018-04-02 20:42:32 -0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CommentsController#show as HTML
+  Parameters: {"entry_id"=>"2", "id"=>"287"}
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."entry_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["entry_id", 2], ["id", 287], ["LIMIT", 1]]
+Completed 404 Not Found in 39ms (Views: 0.3ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/news/2/comments/287" for 127.0.0.1 at 2018-04-02 20:42:54 -0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CommentsController#show as HTML
+  Parameters: {"entry_id"=>"2", "id"=>"287"}
+  [1m[36mEntry Load (0.4ms)[0m  [1m[34mSELECT  "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."entry_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["entry_id", 2], ["id", 287], ["LIMIT", 1]]
+Completed 404 Not Found in 38ms (Views: 0.3ms | ActiveRecord: 8.3ms)
+
+
